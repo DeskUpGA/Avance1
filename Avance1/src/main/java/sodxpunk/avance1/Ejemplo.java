@@ -28,6 +28,7 @@ public class Ejemplo {
         System.out.println("A su fecha se le agregaron 7 dias");
         Periodo p1 = new Periodo(f1,F2);
         System.out.println("Su nuevo periodo es: " + p1);
+        Fecha f3 = new Fecha(F2);
         System.out.println("¿que parte de la fecha va a modificar?");
         System.out.println("1. dia");
         System.out.println("2. mes");
@@ -39,17 +40,17 @@ public class Ejemplo {
             case 1:
                 System.out.print("Ingrese el nuevo día: ");
                 int nuevoDia = sc.nextInt();
-                F2.setDia(nuevoDia);
+                f3.setDia(nuevoDia);
                 break;
             case 2:
                 System.out.print("Ingrese el nuevo mes: ");
                 int nuevoMes = sc.nextInt();
-                F2.setMes(nuevoMes);
+                f3.setMes(nuevoMes);
                 break;
             case 3:
                 System.out.print("Ingrese el nuevo año: ");
                 int nuevoAnio = sc.nextInt();
-                F2.setAño(nuevoAnio);
+                f3.setAño(nuevoAnio);
                 break;
             case 4:
                 System.out.println("No se modificará la fecha.");
@@ -58,8 +59,10 @@ public class Ejemplo {
                 System.out.println("Opción no válida.");
                 break;
         }
-        System.out.println("Su fecha la ha modificado a: " + F2);
-        int dias = F2.lapso(F2);
-        System.out.println("Se encuentra la nueva fecha: ");
+        System.out.println("Su fecha la ha modificado a: " + f3);
+        Periodo p2 = new Periodo(F2,f3);
+        System.out.println("El nuevo periodo es:" + p2);
+        System.out.println("Se encuentra la nueva fecha: " + f3.lapso(F2) + " dia/dias");
+        System.out.println("La nueva fecha se encuentra: " + p1.contiene(f3));
     }   
 }
